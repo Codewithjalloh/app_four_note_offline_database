@@ -8,6 +8,26 @@ class NotePage extends StatefulWidget {
 }
 
 class _NotePageState extends State<NotePage> {
+  final textController = TextEditingController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    // on app startup fetch existing notes
+    readNote();
+  }
+
+  // CREATE NOTE
+  void createNote() {}
+
+  // READ NOTE
+  void readNote() {}
+
+  // DELETE NOTE
+  void deleteNote() {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold();
