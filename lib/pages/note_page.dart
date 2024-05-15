@@ -3,6 +3,8 @@ import 'package:app_four_note_offline_database/models/note_database.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../components/drawer.dart';
+
 class NotePage extends StatefulWidget {
   const NotePage({super.key});
 
@@ -87,6 +89,32 @@ class _NotePageState extends State<NotePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    // note database
+    final noteDatabase = context.watch<NoteDatabase>();
+
+    // current notes
+    List<Note> currentNotes = noteDatabase.currentNotes;
+
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: Colors.transparent,
+        foregroundColor: Theme.of(context).colorScheme.inversePrimary,
+      ),
+      backgroundColor: Theme.of(context).colorScheme.surface,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        onPressed: createNote,
+        child: Icon(
+          Icons.add,
+          color: Theme.of(context).colorScheme.inversePrimary,
+        ),
+      ),
+      drawer: MyDrawer(),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [],
+      ),
+    );
   }
 }
