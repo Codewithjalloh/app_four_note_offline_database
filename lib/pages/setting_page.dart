@@ -34,7 +34,6 @@ class SettingPage extends StatelessWidget {
             ),
 
             // SWITCH TOGGLE
-            // switch toggle
             CupertinoSwitch(
               value:
                   Provider.of<ThemeProvider>(context, listen: false).isDarkMode,
