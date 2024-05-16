@@ -5,7 +5,7 @@ class NoteTile extends StatelessWidget {
   final void Function()? onEditPressed;
   final void Function()? onDeletePressed;
 
-  const NoteTile({super.key});
+  const NoteTile({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {
