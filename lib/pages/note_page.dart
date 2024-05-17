@@ -113,7 +113,10 @@ class _NotePageState extends State<NotePage> {
       drawer: MyDrawer(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [],
+        children: [
+          // LIST OF NOTES 
+          Padding(padding: EdgeInsets.)
+        ],
       ),
     );
   }
