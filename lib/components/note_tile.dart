@@ -25,7 +25,17 @@ class NoteTile extends StatelessWidget {
         title: Text(text),
         trailing: Builder(
           builder: (contex) => IconButton(
-              onPressed: () => showPopover(), icon: Icon(Icons.more_vert)),
+              onPressed: () => showPopover(
+                    width: 100,
+                    height: 100,
+                    backgroundColor: Theme.of(context).colorScheme.surface,
+                    context: contex,
+                    bodyBuilder: (context) => NoteSettings(
+                      onEditTap: onEditPressed,
+                      onDeleteTap: onDeletePressed,
+                    ),
+                  ),
+              icon: Icon(Icons.more_vert)),
         ),
       ),
     );
