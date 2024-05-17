@@ -12,6 +12,28 @@ class NoteSettings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Column(
+      children: [
+        GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+            onEditTap!();
+          },
+          child: Container(
+            height: 50,
+            color: Theme.of(context).colorScheme.surface,
+            child: Center(
+              child: Text(
+                "Edit",
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.inversePrimary,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+        )
+      ],
+    );
   }
 }
