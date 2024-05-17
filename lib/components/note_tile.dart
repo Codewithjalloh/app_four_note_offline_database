@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:popover/popover.dart';
 
 class NoteTile extends StatelessWidget {
   final String text;
@@ -18,6 +19,14 @@ class NoteTile extends StatelessWidget {
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.primary,
         borderRadius: BorderRadius.circular(12),
+      ),
+      margin: EdgeInsets.only(top: 10, left: 25, right: 25),
+      child: ListTile(
+        title: Text(text),
+        trailing: Builder(
+          builder: (contex) => IconButton(
+              onPressed: () => showPopover(), icon: Icon(Icons.more_vert)),
+        ),
       ),
     );
   }
