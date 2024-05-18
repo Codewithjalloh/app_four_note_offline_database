@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: NotePage(),
+      theme: Provider.of<ThemeProvider>(context).themeData,
     );
   }
 }
