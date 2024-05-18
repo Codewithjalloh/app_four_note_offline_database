@@ -31,21 +31,27 @@ class _NotePageState extends State<NotePage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: Theme.of(context).colorScheme.surface,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         content: TextField(
           controller: textController,
+          decoration: InputDecoration(
+            hintText: "Type your task here",
+          ),
         ),
         actions: [
-          MaterialButton(onPressed: () {
-            // add to db
-            context.read<NoteDatabase>().addNote(textController.text);
+          MaterialButton(
+            onPressed: () {
+              // add to db
+              context.read<NoteDatabase>().addNote(textController.text);
 
-            // clear controller
-            textController.clear();
+              // clear controller
+              textController.clear();
 
-            // pop dialog box
-            Navigator.pop(context);
-          }),
+              // pop dialog box
+              Navigator.pop(context);
+            },
+            child: const Text("Create"),
+          ),
         ],
       ),
     );
@@ -62,23 +68,27 @@ class _NotePageState extends State<NotePage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: Theme.of(context).colorScheme.surface,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         content: TextField(
+          decoration: InputDecoration(hintText: "edit your task here"),
           controller: textController,
         ),
         actions: [
-          MaterialButton(onPressed: () {
-            // add to db
-            context
-                .read<NoteDatabase>()
-                .updateNote(note.id, textController.text);
+          MaterialButton(
+            onPressed: () {
+              // add to db
+              context
+                  .read<NoteDatabase>()
+                  .updateNote(note.id, textController.text);
 
-            // clear controller
-            textController.clear();
+              // clear controller
+              textController.clear();
 
-            // pop dialog box
-            Navigator.pop(context);
-          }),
+              // pop dialog box
+              Navigator.pop(context);
+            },
+            child: const Text("Update"),
+          ),
         ],
       ),
     );
