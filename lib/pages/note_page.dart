@@ -1,6 +1,8 @@
+import 'package:app_four_note_offline_database/components/note_tile.dart';
 import 'package:app_four_note_offline_database/models/note.dart';
 import 'package:app_four_note_offline_database/models/note_database.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../components/drawer.dart';
@@ -114,8 +116,30 @@ class _NotePageState extends State<NotePage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // LIST OF NOTES 
-          Padding(padding: EdgeInsets.)
+          // LIST OF NOTES
+          Padding(
+            padding: EdgeInsets.only(left: 25.0),
+            child: Text(
+              "Notes",
+              style: GoogleFonts.dmSerifText(
+                fontSize: 48,
+                color: Theme.of(context).colorScheme.inversePrimary,
+              ),
+            ),
+          ),
+          Expanded(
+              child: ListView.builder(
+                  itemCount: currentNotes.length,
+                  itemBuilder: (context, index) {
+                    // get individual notes
+                    final note = currentNotes[index];
+
+                    return NoteTile(
+                      text: note.text,
+                      onEditPressed: () => updateNote(note),
+                      onDeletePressed: () => deleteNote(note.id),
+                    );
+                  }))
         ],
       ),
     );
