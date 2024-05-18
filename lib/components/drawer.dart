@@ -14,7 +14,10 @@ class MyDrawer extends StatelessWidget {
         children: [
           // HEADER
           const DrawerHeader(
-            child: Icon(Icons.edit),
+            child: Icon(
+              Icons.edit,
+              size: 45,
+            ),
           ),
           const SizedBox(
             height: 25.0,
